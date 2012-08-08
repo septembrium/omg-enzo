@@ -72,6 +72,12 @@ def random_string(length):
         res.append(chr(val))
     return ''.join(res)
 
+def random_identifier():
+    ''' time and random, no guarantee that it's unique '''
+    timepart = str(time.time())[-5:].replace('.','')
+    rndpart = str(random.random())[-5:].replace('.','')
+    return ''.join([timepart, rndpart])
+
 def ensure_windows_newline(text):
     """
     ensures that all the newlines are in a Windows OS flavor
