@@ -1,14 +1,21 @@
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>qrcode gen</title>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
 </head>
 <body>
-<h1>qrcode gen</h1>
-<p>Knock yourself out! Generate a QR Code!</p>
-<form action="/generate" method="POST">
-text: <input type="text" name="qrtext" />
-<input type="submit" label="generate now" />
-</form>
-<h2>{{ error_msg }}</h2>
-<body>
+	<h1>QR Code Generator</h1>
+	<form class="well span6" action="/generate" method="POST">
+		<label>QR Code text:</label>
+		<input name="qrtext" type="text" class="span3" placeholder="enter text here ..." /><br />
+		<button class="btn btn-primary">Submit</button>	
+		<button class="btn">Clear</button>
+	</form>
+	
+	<p class="span6">
+		<strong>{{ error_msg }}</strong>
+	</p>
+
+	<script src="js/bootstrap.js"></script>
+</body>
 </html>
