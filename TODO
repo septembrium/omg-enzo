@@ -1,0 +1,19 @@
+templates
+- generation
+	- question
+	- answers + correct flag
+- answer 
+	- right / wrong
+	- poll info
+- question
+	- recap question
+	- recap answers + correct flag
+
+back-end
+- db plugin
+- basics
+- media queries for analytics  
+
+server
+- experiment with live setup
+- determine if the adnega environment will suffice
