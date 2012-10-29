@@ -1,0 +1,29 @@
+integration:
+- twitter, G+ and Facebook for auth
+- bit.ly for external shortening options (for non pros)
+- zazzle (or similar) for dropshipping 
+
+langingpage:
+- main page
+	- log in/auth and register elements
+	- big title explaining what's offered
+	- newsletter element
+	- free qrcode marketing ebook download
+	- "how it works" info video 
+	- big numbers showing that there's stats
+		- number of generated qrcodes
+		- number of scans via the hosted URLs
+- profile page
+	- the usual
+- generator on main page
+	- for content types see 3rkam's generator and qrs7uff
+	- returns all proper error messages
+	- form
+		- 10 qrcodes at a time option (batchmode!)
+			- free textfield, ask to add csv (<- target pros)
+			- need to registered and logged in to use
+		- choose type of content (free, URL, SMS, ...)
+		- [option] create URL qrcodes with landingpages
+		  these could be managed via an interface
+		- [option] print qrcodes via dropshipping on zazzle
+	- form reset

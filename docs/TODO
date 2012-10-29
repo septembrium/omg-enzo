@@ -1,0 +1,30 @@
+templates
+- generation
+	- question
+	- answers + correct flag
+- answer 
+	- right / wrong
+	- poll info
+- question
+	- recap question
+	- recap answers + correct flag
+
+code structure
+- see 0bin for good config example
+- put templates separately
+- create a package structure
+- implement junit tests, the generator seems to be prone to choking on certain data (mostly with numbers in them for content, filename, ...) 
+
+back-end
+- db plugin
+- basics
+- media queries for analytics  
+
+server
+- experiment with live setup
+- determine if the adnega environment will suffice
+
+features
+- put constraints on the qrcode content (not too long, not empty, ...)
+- ensure the alttag and titletag content is secure and doesn't break the HTML attribute (if applicable)
+- track who's using the generator, even without having account and people logged in it would be interesting to see who keeps using the service based on a cookie or an identifier in their session  
