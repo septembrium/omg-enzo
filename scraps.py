@@ -1,4 +1,6 @@
-# just a test
+import os
+
+# just a script to test Python language assumptions
 class TrainRide:
     def __init__(self, duration):
         self.duration = duration
@@ -35,3 +37,12 @@ if __name__ == "__main__":
     print(lc.him)
     print(lc.her)
     print(lc.sparks)
+    # testing the way os.path works
+    file_abspath = os.path.abspath(__file__)
+    print("file_abspath %s" % file_abspath)
+    root_path = os.path.dirname(os.path.abspath(__file__))
+    print("root_path %s" % root_path)
+    rootdirnamepath = os.path.join(os.path.dirname(root_path), 'dirname_root')
+    print("dirname_root_path %s" % rootdirnamepath)
+    rootabspathpath = os.path.join(os.path.abspath(root_path), 'abspath_root')
+    print("abspath_root_path %s" % rootabspathpath)

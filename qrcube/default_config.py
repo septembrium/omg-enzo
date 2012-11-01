@@ -9,7 +9,7 @@ VERSION = '0.1'
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 LIBS_DIR = os.path.join(os.path.dirname(ROOT_DIR), 'libs')
 
-DEBUG = False
+DEBUG = True
 
 QR_URL_FQDN="http://localhost:8080/" # for the encoded value
 QR_IMG_TYPES=['.jpg','.png','.eps'] # valid image types, by extension

@@ -1,3 +1,6 @@
+qrcode generation
+- generation library seems to break at higher than 10 characters, I probably need to adjust config based on input
+
 templates
 - generation
 	- question
@@ -10,9 +13,6 @@ templates
 	- recap answers + correct flag
 
 code structure
-- see 0bin for good config example
-- put templates separately
-- create a package structure
 - implement junit tests, the generator seems to be prone to choking on certain data (mostly with numbers in them for content, filename, ...) 
 
 back-end

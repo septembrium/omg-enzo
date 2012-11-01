@@ -108,7 +108,7 @@ def show_records(table):
     con = sqlite.connect(settings.DB_FILE_PATH)
     c = con.cursor()
     c.execute("SELECT * FROM %s" % table)
-    return [str(i)+'<br \>\n' for i in c.fetchall()]
+    return template('test', the_records=[str(i) for i in c.fetchall()])
 
 @get('/r/<qrname>')
 def qrlanding(qrname):
@@ -141,5 +141,7 @@ def server_static(filepath):
 
 @get('/<filepath:path>')
 def serve_style(filepath):
-    return static_file(filepath, root=settings.WEBSTYLE_ROOT)
+    print("serve_style requested: " + filepath)
+    print("getting from: " + settings.STATIC_FILES_ROOT)
+    return static_file(filepath, root=settings.STATIC_FILES_ROOT)
 
