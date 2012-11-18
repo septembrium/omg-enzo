@@ -1,70 +1,29 @@
 from PyQRNative import *
 import csv
 
+class TestFile(object):
+    """
+    singleton holding test file content
+    only want to read it once
+    """
+    _instance = None
+
+    def __new__(self, *args, **kwargs):
+        if not self._instance:
+            self._instance = super(TestFil, self).__new__(self, *args, **kwargs)
+        self._instance.update_with_module(default_config)
+        return self._instance
+
+
+
 def make_me_a_qrcode(length, version, eclevel, prepend=''):
     qr = QRCode(version, eclevel)
-    cnt = '''
-The quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...
-The quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...
-The quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...
-The quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...
-he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...
-The quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...he quick brown fox jumps over the lazy dog.
-Dat hem lazy is den dog. En dat hem quick is den brown fox.
-Oh zo quick en oh zo lazy.
-En weet u wat nog ...
-'''
+    cnt_file = open('testcontent.txt', 'rb')
+    print('test file encoding: %s' % cnt_file.encoding)
+    cnt = ''
+    for line in cnt_file:
+        cnt += line
+    print('test file character count %s' % str(len(cnt)))
     qr.addData(cnt[0:length])
     qr.make()
     im = qr.makeImage()
@@ -74,21 +33,24 @@ def run_full_spectrum_test():
     print('running a full a spectrum test')
     def show_and_do(n, v, ecl):
         print('len' + str(n) + ' version:' + str(v) + ' ecl:' + str(ecl))
-        make_me_a_qrcode(l,v,ecl,prepend=str(n)+'_'+str(v)+'_'+str(ecl)+'_')
+        make_me_a_qrcode(n,v,ecl,prepend=str(n)+'_'+str(v)+'_'+str(ecl)+'_')
     def det_ecl(ecl):
         if ecl == 'L': return QRErrorCorrectLevel.L
         if ecl == 'M': return QRErrorCorrectLevel.M
         if ecl == 'Q': return QRErrorCorrectLevel.Q
         if ecl == 'H': return QRErrorCorrectLevel.H
-    csv_reader = csv.reader(open("qr_code_capacity.csv","rb"), delimiter=",", quotechar="|")
+    csv_reader = csv.reader(open("qr_code_capacity.csv","rb"), delimiter=",", quotechar='"')
     for row in csv_reader:
-        if row[0] == 'Version': continue # skip header row
+        print row
+        if row[0] == 'Version':
+            print('skipping header row')
+            continue # skip header row
         v=1
         ecl=QRErrorCorrectLevel.L
         if row[0] <> '' and int(row[0]) <> v: # only change version when in row, take along for next rows
             v = int(row[0])
         n=int(row[6])
-        ecl=det_ecl(row[3])
+        ecl=det_ecl(row[2])
         show_and_do(n, v, ecl)
 
 def run_a_jolly_test():
@@ -115,4 +77,4 @@ def run_a_jolly_test():
     show_and_do(l,v,ecl) # ... Dat hem lazy is den d
 
 if __name__=="__main__":
-    run_a_jolly_test()
+    run_full_spectrum_test()

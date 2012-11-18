@@ -1,0 +1,27 @@
+running a full a spectrum test
+['Version', 'Modules', 'Error Correction', 'Data bits', 'Numeric', 'Alphanumeric', 'Binary']
+skipping header row
+['1', '21x21', 'L', '152', '41', '25', '17']
+len17 version:1 ecl:1
+test file encoding: None
+
+['', '', 'M', '128', '34', '20', '14']
+len14 version:1 ecl:0
+test file encoding: None
+
+['', '', 'Q', '104', '27', '16', '11']
+len11 version:1 ecl:3
+test file encoding: None
+
+['', '', 'H', '72', '17', '10', '7']
+len7 version:1 ecl:2
+test file encoding: None
+
+['2', '25x25', 'L', '272', '77', '47', '32']
+len32 version:2 ecl:1
+test file encoding: None
+
+['', '', 'M', '224', '63', '38', '26']
+len26 version:1 ecl:0
+test file encoding: None
+
