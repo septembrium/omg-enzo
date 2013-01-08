@@ -1,27 +1,125 @@
+test file encoding: None
+test file character count 2748
 running a full a spectrum test
 ['Version', 'Modules', 'Error Correction', 'Data bits', 'Numeric', 'Alphanumeric', 'Binary']
 skipping header row
 ['1', '21x21', 'L', '152', '41', '25', '17']
-len17 version:1 ecl:1
-test file encoding: None
-
+len17 version:1 ecl:L
 ['', '', 'M', '128', '34', '20', '14']
-len14 version:1 ecl:0
-test file encoding: None
-
+len14 version:1 ecl:M
 ['', '', 'Q', '104', '27', '16', '11']
-len11 version:1 ecl:3
-test file encoding: None
-
+len11 version:1 ecl:Q
 ['', '', 'H', '72', '17', '10', '7']
-len7 version:1 ecl:2
-test file encoding: None
-
+len7 version:1 ecl:H
 ['2', '25x25', 'L', '272', '77', '47', '32']
-len32 version:2 ecl:1
-test file encoding: None
-
+len32 version:2 ecl:L
 ['', '', 'M', '224', '63', '38', '26']
-len26 version:1 ecl:0
-test file encoding: None
-
+len26 version:2 ecl:M
+['', '', 'Q', '176', '48', '29', '20']
+len20 version:2 ecl:Q
+['', '', 'H', '128', '34', '20', '14']
+len14 version:2 ecl:H
+['3', '29x29', 'L', '440', '127', '77', '53']
+len53 version:3 ecl:L
+['', '', 'M', '352', '101', '61', '42']
+len42 version:3 ecl:M
+['', '', 'Q', '272', '77', '47', '32']
+len32 version:3 ecl:Q
+['', '', 'H', '208', '58', '35', '24']
+len24 version:3 ecl:H
+['4', '33x33', 'L', '640', '187', '114', '78']
+len78 version:4 ecl:L
+['', '', 'M', '512', '149', '90', '62']
+len62 version:4 ecl:M
+['', '', 'Q', '384', '111', '67', '46']
+len46 version:4 ecl:Q
+['', '', 'H', '288', '82', '50', '34']
+len34 version:4 ecl:H
+['5', '37x37', 'L', '864', '255', '154', '106']
+len106 version:5 ecl:L
+['', '', 'M', '688', '202', '122', '84']
+len84 version:5 ecl:M
+['', '', 'Q', '496', '144', '87', '60']
+len60 version:5 ecl:Q
+['', '', 'H', '368', '106', '64', '44']
+len44 version:5 ecl:H
+['6', '41x41', 'L', '1.088', '322', '195', '134']
+len134 version:6 ecl:L
+['', '', 'M', '864', '255', '154', '106']
+len106 version:6 ecl:M
+['', '', 'Q', '608', '178', '108', '74']
+len74 version:6 ecl:Q
+['', '', 'H', '480', '139', '84', '58']
+len58 version:6 ecl:H
+['7', '45x45', 'L', '1.248', '370', '224', '154']
+len154 version:7 ecl:L
+['', '', 'M', '992', '293', '178', '122']
+len122 version:7 ecl:M
+['', '', 'Q', '704', '207', '125', '86']
+len86 version:7 ecl:Q
+['', '', 'H', '528', '154', '93', '64']
+len64 version:7 ecl:H
+['8', '49x49', 'L', '1.552', '461', '279', '192']
+len192 version:8 ecl:L
+['', '', 'M', '1.232', '365', '221', '152']
+len152 version:8 ecl:M
+['', '', 'Q', '880', '259', '157', '108']
+len108 version:8 ecl:Q
+['', '', 'H', '688', '202', '122', '84']
+len84 version:8 ecl:H
+['9', '53x53', 'L', '1.856', '552', '335', '230']
+len230 version:9 ecl:L
+['', '', 'M', '1.456', '432', '262', '180']
+len180 version:9 ecl:M
+['', '', 'Q', '1.056', '312', '189', '130']
+len130 version:9 ecl:Q
+['', '', 'H', '800', '235', '143', '98']
+len98 version:9 ecl:H
+['10', '57x57', 'L', '2.192', '652', '395', '271']
+len271 version:10 ecl:L
+['', '', 'M', '1.728', '513', '311', '213']
+len213 version:10 ecl:M
+['', '', 'Q', '1.232', '364', '221', '151']
+len151 version:10 ecl:Q
+['', '', 'H', '976', '288', '174', '119']
+len119 version:10 ecl:H
+['11', '61x61', 'L', '2.592', '772', '468', '321']
+len321 version:11 ecl:L
+['', '', 'M', '2.032', '604', '366', '251']
+len251 version:11 ecl:M
+['', '', 'Q', '1.44', '427', '259', '177']
+len177 version:11 ecl:Q
+['', '', 'H', '1.12', '331', '200', '137']
+len137 version:11 ecl:H
+['12', '65x65', 'L', '2.96', '883', '535', '367']
+len367 version:12 ecl:L
+['', '', 'M', '2.32', '691', '419', '287']
+len287 version:12 ecl:M
+['', '', 'Q', '1.648', '489', '296', '203']
+len203 version:12 ecl:Q
+['', '', 'H', '1.264', '374', '227', '155']
+len155 version:12 ecl:H
+['13', '69x69', 'L', '3424', '1022', '619', '425']
+len425 version:13 ecl:L
+['', '', 'M', '2.672', '796', '483', '331']
+len331 version:13 ecl:M
+['', '', 'Q', '1.952', '580', '352', '241']
+len241 version:13 ecl:Q
+['', '', 'H', '1.44', '427', '259', '177']
+len177 version:13 ecl:H
+['14', '73x73', 'L', '3.688', '1.101', '667', '458']
+len458 version:14 ecl:L
+['', '', 'M', '2.92', '871', '528', '362']
+len362 version:14 ecl:M
+['', '', 'Q', '2.088', '621', '376', '258']
+len258 version:14 ecl:Q
+['', '', 'H', '1.576', '468', '283', '194']
+len194 version:14 ecl:H
+['15', '77x77', 'L', '4.184', '1.25', '758', '520']
+len520 version:15 ecl:L
+['', '', 'M', '3.32', '991', '600', '412']
+len412 version:15 ecl:M
+['', '', 'Q', '2.36', '703', '426', '292']
+len292 version:15 ecl:Q
+['', '', 'H', '1.784', '530', '321', '220']
+len220 version:15 ecl:H

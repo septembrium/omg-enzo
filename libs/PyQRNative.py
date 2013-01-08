@@ -951,6 +951,8 @@ class QRRSBlock:
         elif errorCorrectLevel ==  QRErrorCorrectLevel.Q:
             return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2];
         elif errorCorrectLevel ==  QRErrorCorrectLevel.H:
+            # print('the qr rsblock list position:' + str((typeNumber - 1) * 4 + 3))
+            # print('content:' + str(QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3]))
             return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3];
         else:
             return None;

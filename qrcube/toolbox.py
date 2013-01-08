@@ -178,7 +178,7 @@ def all_files_in_folder(path, file_has_extension=None, filename_must_contain=Non
 
         log_if_debug('reading: ', full_file_path)
         try:
-            input_file = open(full_file_path, 'r') # maybe make this read binary in the future, not touching it for now
+            input_file = open(full_file_path, 'rb') # maybe make this read binary in the future, not touching it for now
             yield (stripped_name, input_file)
         except (IOError, OSError):
             print 'ERROR reading: ', full_file_path

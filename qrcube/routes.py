@@ -11,7 +11,6 @@ import sqlite3 as sqlite
 from toolbox import settings # <-- default_config gets loaded here
 import bottle
 from bottle import (Bottle, run, post, get, template, request, static_file)
-from PyQRNative import QRCode, QRErrorCorrectLevel
 
 class ImageTypeError(Exception):
     def __init__(self, msg):
@@ -31,7 +30,7 @@ class QRCodeMaker:
         self.path = path
         self.eclevel = int(eclevel)
         self.author_id = author_id
-        self.qrtypenumber = qrtypenumber
+        self.qrtypenumber = qrtypenumber # [TODO] factor this member out, type or version are determined by the length of the content
 
     def create_qrcode_file(self, text, img_type, name):
         # write qr code to filesystem
@@ -39,6 +38,10 @@ class QRCodeMaker:
             raise ImageTypeException("can't generate QR Code, not a valid image type (determined by extension) " + settings.QR_IMG_TYPES)
         if not toolbox.string_has_content(text):
             raise ValueError("can't generate QR Code without proper string content")
+        # determine the qrcode type based on amount of content to load
+        content_length = len(text)
+        if content_length in range(1, 5):
+            qrtypenumber = 1   # [TODO] continue here once the data is clear
         qr = QRCode(self.qrtypenumber, self.eclevel)
         qr.addData(text)
         qr.make()
@@ -108,32 +111,7 @@ def show_records(table):
     con = sqlite.connect(settings.DB_FILE_PATH)
     c = con.cursor()
     c.execute("SELECT * FROM %s" % table)
-    return template('test', the_records=[str(i) for i in c.fetchall()])
-
-@get('/r/<qrname>')
-def qrlanding(qrname):
-    # get corresponding record
-    con = sqlite.connect('qrcube.db')
-    c = con.cursor()
-    # [TODO] this will cause problems when 2 comps have the same name, refactor
-    # or ensure that no 2 'comps' have the same name
-    c.execute("SELECT * FROM qrbattle WHERE comp1 = ? OR comp2 = ?",
-(qrname,qrname))
-    row = c.fetchone() # we need fields 3 and 4
-    if row:
-        # if found show the template with the points
-        comp1 = row[3]
-        print comp1
-        comp2 = row[4]
-        print comp2
-        return template('battlefield',
-                        qrimg1=comp1,
-                        qrimg2=comp2,
-                        error_msg=''
-                        )
-    else:
-        # if not found, direct to homepage
-        return battle()
+    return template('show_records', the_records=[str(i) for i in c.fetchall()])
 
 @get('/qrs/<filepath:path>')
 def server_static(filepath):

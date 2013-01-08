@@ -1,0 +1,38 @@
+test file encoding: None
+test file character count 2748
+len129 version:15 ecl:H
+the qr rsblock list position:59
+content:[11, 36, 12]
+total data count: 12
+max before BO:96
+buffer length:1052
+total data count: 24
+max before BO:192
+buffer length:1052
+total data count: 36
+max before BO:288
+buffer length:1052
+total data count: 48
+max before BO:384
+buffer length:1052
+total data count: 60
+max before BO:480
+buffer length:1052
+total data count: 72
+max before BO:576
+buffer length:1052
+total data count: 84
+max before BO:672
+buffer length:1052
+total data count: 96
+max before BO:768
+buffer length:1052
+total data count: 108
+max before BO:864
+buffer length:1052
+total data count: 120
+max before BO:960
+buffer length:1052
+total data count: 132
+max before BO:1056
+buffer length:1052

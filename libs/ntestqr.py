@@ -1,4 +1,4 @@
-from PyQRNative import *
+import qrcode
 import csv
 
 cnt_file = open('testcontent.txt', 'rb')
@@ -9,11 +9,25 @@ for line in cnt_file:
 print('test file character count %s' % str(len(cnt)))
 
 def make_me_a_qrcode(length, version, eclevel, prepend=''):
-    qr = QRCode(version, eclevel)
-    qr.addData(cnt[0:length])
+    qr = qrcode.QRCode(
+        version=version,
+        error_correction=eclevel,
+        box_size=5,
+    )
+    # don't do versions above min_version
+    min_version = 0
+    if min_version > version:
+        return
+    qr.add_data(cnt[0:length])
     qr.make()
-    im = qr.makeImage()
+    im = qr.make_image()
     im.save('/home/bert/testqrcodefiles/' + prepend + 'qrcodetest.png')
+
+class QRErrorCorrectLevel:
+    L = 1
+    M = 0
+    Q = 3
+    H = 2
 
 def pretty_ecl(ecl): # these ecl functions could have been more elegant, but wth it works
     if ecl == QRErrorCorrectLevel.L: return 'L'

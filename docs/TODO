@@ -1,7 +1,28 @@
 qrcode generation
-- generation library seems to break at higher than 10 characters, I probably need to adjust config based on input
+- generation library seems to break in version 15 and version 26 on spec limits, need to find alternative
 
-templates
+templates qrcube batch qr code generator
+- landingpage
+	- log-in form + register link
+	- newsletter field
+	- qr code contenttype radiobuttons
+	- qr code content field
+- qr code result page
+	- qr code image + generation meta data
+	- downloadlinks [.jpg, .esp, .png] 
+- log-in/register form page
+	- connect with Twitter
+	- connect with Facebook
+	- connect with GooglePlus
+- account page
+	- email
+	- first name
+	- last name
+	- password
+	- password confirmation
+-  
+
+templates qrquestion toy
 - generation
 	- question
 	- answers + correct flag
@@ -13,10 +34,10 @@ templates
 	- recap answers + correct flag
 
 code structure
-- implement junit tests, the generator seems to be prone to choking on certain data (mostly with numbers in them for content, filename, ...) 
+- implement unit tests, the generator seems to be prone to choking on certain data (mostly with numbers in them for content, filename, ...) 
 
 back-end
-- db plugin
+- db plugin for swith to MySQL
 - basics
 - media queries for analytics  
 
@@ -27,4 +48,4 @@ server
 features
 - put constraints on the qrcode content (not too long, not empty, ...)
 - ensure the alttag and titletag content is secure and doesn't break the HTML attribute (if applicable)
-- track who's using the generator, even without having account and people logged in it would be interesting to see who keeps using the service based on a cookie or an identifier in their session  
+- track who's using the generator, even without having an account and people logged in it would be interesting to see who keeps using the service based on a cookie or an identifier in their session  
